@@ -40,8 +40,8 @@ A clean, minimalist, and keyboard-driven Hyprland configuration for Arch Linux a
 | `Super + 1, 2, 3..` | Switch workspaces |
 | `Super + Shift + 1, 2..` | Move window to workspace |
 | `Super + Mouse Wheel` | Zoom in / out |
-| `Super + Delete` | Fullscreen screenshot (`grim`) |
-| `Delete` | Region screenshot (`grim` + `slurp`) |
+| `Super + Delete` / `Print` | Fullscreen screenshot (save & clipboard) |
+| `Delete` / `Super + Print` | Region screenshot (save & clipboard) |
 
 ---
 

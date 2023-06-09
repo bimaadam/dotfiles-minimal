@@ -31,9 +31,11 @@ hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("sh -c 'pgrep -x waybar >/dev
 -- Clipboard
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("pgrep -x rofi >/dev/null && pkill -x rofi || cliphist list | rofi -dmenu -p '' | cliphist decode | wl-copy"))
 
--- Screenshots
-hl.bind(mainMod .. " + Delete", hl.dsp.exec_cmd("grim " .. home .. "/Pictures/$(date +%s).png"))
-hl.bind("Delete", hl.dsp.exec_cmd('grim -g "$(slurp)" ' .. home .. '/Pictures/$(date +%s).png'))
+-- Screenshots (Save to ~/Pictures and copy to clipboard)
+hl.bind(mainMod .. " + Delete", hl.dsp.exec_cmd(home .. "/.config/hypr/scripts/screenshot.sh full"))
+hl.bind("Delete", hl.dsp.exec_cmd(home .. "/.config/hypr/scripts/screenshot.sh area"))
+hl.bind("Print", hl.dsp.exec_cmd(home .. "/.config/hypr/scripts/screenshot.sh full"))
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd(home .. "/.config/hypr/scripts/screenshot.sh area"))
 
 -- Brightness
 hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl set 5%+"), { locked = true, repeating = true })
