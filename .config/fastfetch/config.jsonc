@@ -4,7 +4,8 @@
         "type": "small",
         "color": {
             "1": "white",
-            "2": "white"
+            "2": "white",
+            "3": "white"
         }
     },
     "display": {
@@ -18,6 +19,14 @@
         },
         "key": {
             "type": "icon"
+        },
+        "percent": {
+            "type": 0,
+            "color": {
+                "green": "white",
+                "yellow": "white",
+                "red": "white"
+            }
         }
     },
     "modules": [
@@ -26,18 +35,14 @@
             "color": {
                 "user": "white",
                 "at": "bright_black",
-                "host": "bright_white"
+                "host": "white"
             }
         },
         "os",
         "kernel",
+        "wm",
         "memory",
         "packages",
-        "uptime",
-        {
-            "type": "colors",
-            "key": "Colors",
-            "symbol": "circle"
-        }
+        "uptime"
     ]
 }
