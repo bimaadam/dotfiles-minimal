@@ -97,3 +97,4 @@ brightnessctl
 nvtop
 btop
 cava
+fastfetch
