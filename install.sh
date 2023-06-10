@@ -289,6 +289,13 @@ info "Updating Config paths to current user ($USER)..."
 [[ -f "$CONFIG_DIR/wlogout/style.css" ]] && sed -i "s|/home/[^/]*|/home/$USER|g" "$CONFIG_DIR/wlogout/style.css"
 [[ -f "$CONFIG_DIR/spicetify/config-xpui.ini" ]] && sed -i "s|/home/[^/]*|/home/$USER|g" "$CONFIG_DIR/spicetify/config-xpui.ini"
 
+# Enable fastfetch greeting on interactive shell
+if [[ -f "$HOME/.bashrc" ]] && ! grep -q "fastfetch" "$HOME/.bashrc"; then
+    info "Adding fastfetch greeting to ~/.bashrc..."
+    printf '\n# Fastfetch greeting\nif [[ $- == *i* ]] && command -v fastfetch >/dev/null 2>&1; then\n    fastfetch\nfi\n' >> "$HOME/.bashrc"
+    success "Fastfetch added to ~/.bashrc."
+fi
+
 # --------------------------------------------------
 # Finish
 # --------------------------------------------------
