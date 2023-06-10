@@ -6,15 +6,15 @@
 add_newline = true
 
 format = """
-$directory$git_branch$git_status$cmd_duration
+[╭─](bold #777777) $directory$git_branch$git_status$cmd_duration
 $character"""
 
 command_timeout = 1000
 
 [character]
-success_symbol = "[❯](bold white)"
-error_symbol = "[❯](bold #ff5555)"
-vimcmd_symbol = "[❮](bold #888888)"
+success_symbol = "[╰─](bold #777777)[❯](bold white) "
+error_symbol = "[╰─](bold #777777)[❯](bold #ff5555) "
+vimcmd_symbol = "[╰─](bold #777777)[❮](bold #888888) "
 
 [directory]
 format = "[󰉋 $path]($style) "
@@ -29,7 +29,7 @@ style = "bold #aaaaaa"
 
 [git_status]
 format = "([$all_status$ahead_behind]($style) )"
-style = "bold #777777"
+style = "bold #888888"
 conflicted = "󰞇 "
 ahead = "⇡${count} "
 behind = "⇣${count} "
