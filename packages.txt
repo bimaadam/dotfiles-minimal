@@ -98,3 +98,4 @@ nvtop
 btop
 cava
 fastfetch
+starship

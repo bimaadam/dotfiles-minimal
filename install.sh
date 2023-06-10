@@ -296,6 +296,13 @@ if [[ -f "$HOME/.bashrc" ]] && ! grep -q "fastfetch" "$HOME/.bashrc"; then
     success "Fastfetch added to ~/.bashrc."
 fi
 
+# Enable starship prompt on bash
+if [[ -f "$HOME/.bashrc" ]] && ! grep -q "starship init bash" "$HOME/.bashrc"; then
+    info "Adding starship init to ~/.bashrc..."
+    printf '\n# Starship Prompt\nif command -v starship >/dev/null 2>&1; then\n    eval "$(starship init bash)"\nfi\n' >> "$HOME/.bashrc"
+    success "Starship prompt added to ~/.bashrc."
+fi
+
 # --------------------------------------------------
 # Finish
 # --------------------------------------------------

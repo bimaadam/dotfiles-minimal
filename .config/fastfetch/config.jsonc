@@ -4,14 +4,18 @@
         "type": "small",
         "color": {
             "1": "white",
-            "2": "white",
-            "3": "white"
+            "2": "38;2;175;175;175",
+            "3": "38;2;110;110;110"
+        },
+        "padding": {
+            "top": 0,
+            "right": 2
         }
     },
     "display": {
-        "separator": "  ",
+        "separator": "  \u001b[38;2;85;85;85m│\u001b[0m  ",
         "color": {
-            "keys": "white"
+            "keys": "38;2;175;175;175"
         },
         "size": {
             "ndigits": 0,
@@ -23,9 +27,9 @@
         "percent": {
             "type": 0,
             "color": {
-                "green": "white",
-                "yellow": "white",
-                "red": "white"
+                "green": "38;2;175;175;175",
+                "yellow": "38;2;175;175;175",
+                "red": "38;2;175;175;175"
             }
         }
     },
@@ -34,8 +38,8 @@
             "type": "title",
             "color": {
                 "user": "white",
-                "at": "bright_black",
-                "host": "white"
+                "at": "38;2;95;95;95",
+                "host": "38;2;175;175;175"
             }
         },
         "os",
@@ -43,6 +47,10 @@
         "wm",
         "memory",
         "packages",
-        "uptime"
+        "uptime",
+        {
+            "type": "custom",
+            "format": "\u001b[38;2;65;65;65m■ \u001b[38;2;95;95;95m■ \u001b[38;2;130;130;130m■ \u001b[38;2;165;165;165m■ \u001b[38;2;205;205;205m■ \u001b[38;2;255;255;255m■"
+        }
     ]
 }

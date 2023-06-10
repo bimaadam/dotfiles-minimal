@@ -1,0 +1,62 @@
+# ~/.config/starship.toml
+# Minimalist Monochrome Starship Configuration
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+format = """
+$directory$git_branch$git_status$cmd_duration
+$character"""
+
+command_timeout = 1000
+
+[character]
+success_symbol = "[❯](bold white)"
+error_symbol = "[❯](bold #ff5555)"
+vimcmd_symbol = "[❮](bold #888888)"
+
+[directory]
+format = "[󰉋 $path]($style) "
+style = "bold white"
+truncation_length = 3
+truncation_symbol = "…/"
+home_symbol = "~"
+
+[git_branch]
+format = "[ $branch]($style) "
+style = "bold #aaaaaa"
+
+[git_status]
+format = "([$all_status$ahead_behind]($style) )"
+style = "bold #777777"
+conflicted = "󰞇 "
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕ "
+untracked = "? "
+stashed = "* "
+modified = "! "
+staged = "+ "
+renamed = "» "
+deleted = "✘ "
+
+[cmd_duration]
+min_time = 2000
+format = "[⏱ $duration]($style) "
+style = "bold #666666"
+
+[package]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[python]
+disabled = true
+
+[rust]
+disabled = true
+
+[golang]
+disabled = true
