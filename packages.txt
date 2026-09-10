@@ -101,3 +101,6 @@ cava
 fastfetch
 starship
 tty-clock
+lazygit
+nodejs
+npm
