@@ -20,6 +20,7 @@ hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("quickshell -n -c hyprquickpaper"))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = 0 }))
 
 hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(home .. "/.config/hypr/scripts/opacity.sh"))
+hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(home .. "/.config/hypr/scripts/toggle-animation.sh"))
 
 -- Mouse move/resize window
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })

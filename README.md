@@ -32,6 +32,7 @@ A clean, minimalist, and keyboard-driven Hyprland configuration for Arch Linux a
 | `Super + W` | Wallpaper selector (`quickshell`) |
 | `Super + V` | Clipboard history (`cliphist`) |
 | `Super + O` | Switch opacity |
+| `Super + A` | Toggle animations (Smooth Cinematic / Default) |
 | `Super + F` | Toggle fullscreen |
 | `Super + Space` | Toggle floating & center window |
 | `Super + Shift + W` | Toggle Waybar |
