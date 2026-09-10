@@ -1,0 +1,86 @@
+# ~/.config/dunst/dunstrc
+# Minimalist Monochrome Dunst Configuration
+
+[global]
+    ### Display ###
+    monitor = 0
+    follow = mouse
+
+    ### Geometry ###
+    width = (280, 420)
+    height = (60, 250)
+    origin = top-right
+    offset = 16x16
+    scale = 0
+    notification_limit = 5
+
+    ### Progress bar ###
+    progress_bar = true
+    progress_bar_height = 4
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 320
+    progress_bar_corner_radius = 4
+
+    ### Look and Feel ###
+    indicate_hidden = yes
+    transparency = 5
+    separator_height = 2
+    padding = 14
+    horizontal_padding = 18
+    text_icon_padding = 14
+    frame_width = 1
+    frame_color = "#333333"
+    gap_size = 8
+    separator_color = frame
+    sort = yes
+    idle_threshold = 120
+
+    ### Text ###
+    font = JetBrainsMono Nerd Font 10
+    line_height = 2
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = 60
+    ellipsize = middle
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+
+    ### Icons ###
+    enable_recursive_icon_lookup = true
+    icon_theme = Papirus-Dark, Papirus
+    icon_position = left
+    min_icon_size = 24
+    max_icon_size = 48
+    icon_corner_radius = 6
+
+    ### Rounded Corners ###
+    corner_radius = 8
+    corners = all
+
+    ### Mouse actions ###
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
+[urgency_low]
+    background = "#121212"
+    foreground = "#a0a0a0"
+    frame_color = "#262626"
+    timeout = 4
+
+[urgency_normal]
+    background = "#121212"
+    foreground = "#e0e0e0"
+    frame_color = "#383838"
+    timeout = 6
+
+[urgency_critical]
+    background = "#161616"
+    foreground = "#ffffff"
+    frame_color = "#ffffff"
+    timeout = 0
