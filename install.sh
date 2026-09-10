@@ -303,6 +303,13 @@ if [[ -f "$HOME/.bashrc" ]] && ! grep -q "starship init bash" "$HOME/.bashrc"; t
     success "Starship prompt added to ~/.bashrc."
 fi
 
+# Enable aesthetic clock alias
+if [[ -f "$HOME/.bashrc" ]] && ! grep -q "alias clock=" "$HOME/.bashrc"; then
+    info "Adding clock alias to ~/.bashrc..."
+    printf "\nalias clock='tty-clock -c -x -C 7 -s'\n" >> "$HOME/.bashrc"
+    success "Clock alias added to ~/.bashrc."
+fi
+
 # --------------------------------------------------
 # Finish
 # --------------------------------------------------
