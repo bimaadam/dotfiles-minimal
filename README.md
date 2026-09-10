@@ -46,6 +46,46 @@ A clean, minimalist, and keyboard-driven Hyprland configuration for Arch Linux a
 
 ---
 
+## ⚡ AstroNvim (Code Editor) Cheatsheet
+
+> Leader Key di AstroNvim adalah tombol **`Space`** (Spasi).
+
+### 1. Buka Project & File
+| Perintah / Shortcut | Aksi |
+| :--- | :--- |
+| `nvim .` | Buka folder project saat ini (mirip `code .`) |
+| `nvim index.js` | Buka atau buat file baru langsung |
+| `Space + e` | Buka / tutup sidebar file explorer (**Neo-tree**) |
+| `Space + f + f` | Cari file di project (**Find files**) |
+| `Space + f + w` | Cari teks/kata di seluruh project (**Live grep**) |
+| `Space + f + o` | Buka file yang baru saja ditutup (**Recent files**) |
+
+### 2. Dasar Ngetik & Simpan
+| Tombol | Mode / Aksi |
+| :--- | :--- |
+| `i` | Masuk ke **Insert Mode** (mulai mengetik kode) |
+| `Esc` | Kembali ke **Normal Mode** |
+| `Space + w` *(atau `:w`)* | **Save** file yang sedang aktif |
+| `:q` | Tutup file / jendela saat ini |
+| `:qa` | Keluar dari Neovim |
+
+### 3. Git & Terminal Terintegrasi
+| Shortcut | Aksi |
+| :--- | :--- |
+| `Space + g + g` / `Space + t + l` | Buka UI Git interaktif (**Lazygit**) |
+| `Space + t + f` | Buka floating terminal di dalam editor |
+
+### 4. Coding & LSP (Auto-format & Navigasi)
+| Shortcut | Aksi |
+| :--- | :--- |
+| `Space + l + f` | Format kode otomatis (**Prettier / Linter**) |
+| `Space + l + r` | Rename variabel di seluruh project |
+| `gd` | Go to definition (loncat ke deklarasi fungsi/variabel) |
+| `K` | Hover info (lihat tipe data / dokumentasi fungsi) |
+| `Space + p + m` | Buka **Mason** (install/update bahasa & LSP baru) |
+
+---
+
 ## 🚀 Quick Start
 
 Ensure `git` is installed, then clone and run the installer:

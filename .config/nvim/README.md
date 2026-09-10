@@ -1,34 +1,76 @@
-# AstroNvim Template
+# ⚡ AstroNvim Configuration (Minimalist Monochrome)
 
-**NOTE:** This is for AstroNvim v6+
+Konfigurasi AstroNvim v4 yang disesuaikan dengan tema minimalis monokrom dotfiles.
 
-A template for getting started with [AstroNvim](https://github.com/AstroNvim/AstroNvim)
+- **Theme**: `slugbyte/lackluster.nvim` (`lackluster-night`)
+- **Background**: Pure Pitch Black (`#000000`)
+- **Installed Packs**: TypeScript/JS, Go, Rust, Java, HTML/CSS, PHP, SQL, YAML, Helm (K8s), Docker, Bash, Lua, Hyprlang.
 
-## 🛠️ Installation
+---
 
-#### Make a backup of your current nvim and shared folder
+## ⌨️ AstroNvim Cheatsheet & Keybindings
 
-```shell
-mv ~/.config/nvim ~/.config/nvim.bak
-mv ~/.local/share/nvim ~/.local/share/nvim.bak
-mv ~/.local/state/nvim ~/.local/state/nvim.bak
-mv ~/.cache/nvim ~/.cache/nvim.bak
-```
+> **Leader Key** adalah tombol **`Space`** (Spasi).
 
-#### Create a new user repository from this template
+### 1. Membuka Project & File
+| Shortcut / Command | Deskripsi |
+| :--- | :--- |
+| `nvim .` | Membuka folder project saat ini (mirip `code .` di VS Code) |
+| `nvim <nama_file>` | Membuka atau membuat file baru langsung |
+| `<Space> + e` | Buka / tutup sidebar file explorer (**Neo-tree**) |
+| `<Space> + f + f` | Cari file di project (**Find files**) |
+| `<Space> + f + w` | Cari kata / teks di seluruh folder project (**Live grep**) |
+| `<Space> + f + o` | Buka file yang baru saja dibuka (**Recent files**) |
+| `<Space> + b + b` | Pilih buffer / tab file yang sedang aktif |
 
-Press the "Use this template" button above to create a new repository to store your user configuration.
+---
 
-You can also just clone this repository directly if you do not want to track your user configuration in GitHub.
+### 2. Dasar Mengetik & Simpan (Vim Modes)
+| Tombol | Mode / Fungsi |
+| :--- | :--- |
+| `i` | **Insert Mode** (Mulai mengetik teks / kode) |
+| `Esc` | Kembali ke **Normal Mode** (mode navigasi / shortcut) |
+| `<Space> + w` *(atau `:w`)* | **Save** file yang sedang aktif |
+| `:q` | Tutup file / jendela saat ini |
+| `:qa` | Keluar dari Neovim |
+| `u` | Undo (kembalikan perubahan) |
+| `Ctrl + r` | Redo (ulangi perubahan) |
 
-#### Clone the repository
+---
 
-```shell
-git clone https://github.com/<your_user>/<your_repository> ~/.config/nvim
-```
+### 3. Window Splitting (Bagi Layar)
+| Shortcut | Aksi |
+| :--- | :--- |
+| `\|` *(atau `:vsplit`)* | Split layar **vertikal** (kiri - kanan) |
+| `-` *(atau `:split`)* | Split layar **horizontal** (atas - bawah) |
+| `Ctrl + h / j / k / l` | Pindah kursor antar split window (kiri / bawah / atas / kanan) |
 
-#### Start Neovim
+---
 
-```shell
-nvim
-```
+### 4. Git & Terminal Terintegrasi
+| Shortcut | Aksi |
+| :--- | :--- |
+| `<Space> + g + g` *(atau `<Space> + t + l`)* | Buka UI Git interaktif (**Lazygit**) |
+| `<Space> + t + f` | Buka popup floating terminal di dalam editor |
+| `<Space> + t + h` | Buka terminal horizontal di bawah editor |
+
+---
+
+### 5. Coding, LSP & Formatter
+| Shortcut | Aksi |
+| :--- | :--- |
+| `<Space> + l + f` | Format kode otomatis (**Prettier / Linter**) |
+| `<Space> + l + r` | Rename variabel / fungsi di seluruh project |
+| `<Space> + l + a` | Code actions / Quick fix |
+| `gd` | Go to definition (loncat ke deklarasi fungsi/variabel) |
+| `K` | Hover info (lihat tipe data / dokumentasi fungsi) |
+| `[d` / `]d` | Loncat ke error / diagnostic sebelumnya / berikutnya |
+
+---
+
+### 6. Manajemen Paket & Plugin
+| Shortcut | Aksi |
+| :--- | :--- |
+| `<Space> + p + m` | Buka **Mason** (install LSP, linter, formatter baru) |
+| `<Space> + p + l` | Buka **Lazy** (update & kelola plugin) |
+| `<Space> + p + c` | Buka **AstroCommunity** updater |
