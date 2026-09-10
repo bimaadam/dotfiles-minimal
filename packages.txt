@@ -99,3 +99,4 @@ btop
 cava
 fastfetch
 starship
+tty-clock
