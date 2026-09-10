@@ -19,4 +19,7 @@ return {
 
   -- Monochrome Theme
   { import = "astrocommunity.colorscheme.lackluster-nvim" },
+
+  -- Discord Rich Presence
+  { import = "astrocommunity.media.neocord-nvim" },
 }
