@@ -8,6 +8,12 @@ hl.layer_rule({
     ignore_alpha = 0.15,
 })
 
+hl.layer_rule({
+    match = { namespace = "dunst" },
+    blur = true,
+    ignore_alpha = 0.2,
+})
+
 -- Opacity rules: 90% for all windows except fullscreen
 hl.window_rule({
     match = { class = ".*" },
