@@ -55,6 +55,7 @@ pavucontrol
 kitty
 thunar
 xed
+neovim
 
 # --------------------------------------------------
 # File manager / thumbnails / icons / GTK
