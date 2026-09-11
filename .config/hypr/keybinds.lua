@@ -33,9 +33,9 @@ hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("sh -c 'pgrep -x waybar >/dev
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("pgrep -x rofi >/dev/null && pkill -x rofi || cliphist list | rofi -dmenu -p '' | cliphist decode | wl-copy"))
 
 -- Screenshots (Save to ~/Pictures and copy to clipboard)
-hl.bind(mainMod .. " + Delete", hl.dsp.exec_cmd(home .. "/.config/hypr/scripts/screenshot.sh full"))
+hl.bind(mainMod .. " + Delete", hl.dsp.exec_cmd(home .. "/.config/hypr/scripts/screenshot.sh full"), { locked = true })
 hl.bind("Delete", hl.dsp.exec_cmd(home .. "/.config/hypr/scripts/screenshot.sh area"))
-hl.bind("Print", hl.dsp.exec_cmd(home .. "/.config/hypr/scripts/screenshot.sh full"))
+hl.bind("Print", hl.dsp.exec_cmd(home .. "/.config/hypr/scripts/screenshot.sh full"), { locked = true })
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd(home .. "/.config/hypr/scripts/screenshot.sh area"))
 
 -- Brightness
