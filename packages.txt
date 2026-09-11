@@ -13,6 +13,7 @@ hyprland
 waybar
 rofi
 hyprlock
+sddm
 wlogout
 quickshell
 jq
