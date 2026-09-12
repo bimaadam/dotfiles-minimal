@@ -1,11 +1,12 @@
 [Unit]
 Description=Discord RPC++
 After=graphical-session.target
+StartLimitIntervalSec=0
 
 [Service]
 ExecStart=/home/bimaadam/.local/bin/rpcpp
 Restart=always
-RestartSec=1s
+RestartSec=2s
 
 [Install]
 WantedBy=default.target
