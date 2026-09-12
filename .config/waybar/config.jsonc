@@ -6,7 +6,7 @@
 
     "modules-left": ["hyprland/workspaces", "cpu", "custom/gpu", "memory", "temperature"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/mpris-marquee", "pulseaudio", "battery", "custom/power"],
+    "modules-right": ["custom/mpris-marquee", "pulseaudio", "image#battery", "custom/power"],
 
     "hyprland/workspaces": {
         "format": "{name}",
@@ -77,18 +77,11 @@
         "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     },
 
-    "battery": {
+    "image#battery": {
+        "exec": "~/.config/waybar/scripts/battery-svg.py",
+        "size": 44,
         "interval": 2,
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon}  {capacity}%",
-        "format-charging": "󰂄  {capacity}%",
-        "format-plugged": "󰚥  {capacity}%",
-        "format-alt": "{capacity}%  {icon}",
-        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+        "tooltip": true
     },
 
     "custom/power": {

@@ -69,6 +69,8 @@ window#waybar {
 #clock,
 #pulseaudio,
 #battery,
+#image#battery,
+#image,
 #custom-mpris-marquee,
 #custom-power,
 #temperature {
