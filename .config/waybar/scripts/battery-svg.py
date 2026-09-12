@@ -112,8 +112,10 @@ def get_current_theme():
         try:
             with open(THEME_FILE) as f:
                 t = f.read().strip().lower()
-                if t in ("macos", "light"):
-                    return "macos"
+                if t in ("macos", "macos-light", "light"):
+                    return "macos-light"
+                elif t in ("macos-dark", "dark"):
+                    return "macos-dark"
         except Exception:
             pass
     return "default"
@@ -128,7 +130,7 @@ def generate_svg(pct, charging):
     theme = get_current_theme()
     bolt_path = "M 4.2 1.5 L 1.8 6.2 L 3.8 6.2 L 2.8 10.5 L 6.8 5.2 L 4.8 5.2 Z"
 
-    if theme == "macos":
+    if theme == "macos-light":
         # macOS Light theme colors
         stroke_color = "#1d1d1f"
         term_color = "#1d1d1f"

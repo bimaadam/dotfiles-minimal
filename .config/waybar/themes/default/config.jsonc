@@ -160,7 +160,7 @@
     "custom/theme-switch": {
         "format": "󰔎",
         "tooltip": true,
-        "tooltip-format": "Current: Dark Mode\nClick: Switch to macOS Light Mode",
+        "tooltip-format": "Current: Default Dark (Pill)\nClick: Switch to macOS Light",
         "on-click": "~/.config/waybar/scripts/switch-theme.sh"
     },
 

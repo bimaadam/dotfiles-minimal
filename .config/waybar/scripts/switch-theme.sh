@@ -9,14 +9,45 @@ if [ -f "$ACTIVE_THEME_FILE" ]; then
     current=$(cat "$ACTIVE_THEME_FILE" | tr -d '[:space:]')
 fi
 
+# Normalize current theme
+case "$current" in
+    "macos"|"macos-light"|"light")
+        current="macos-light"
+        ;;
+    "macos-dark"|"dark")
+        current="macos-dark"
+        ;;
+    *)
+        current="default"
+        ;;
+esac
+
 # Determine target theme
 target="$1"
 if [ -z "$target" ] || [ "$target" = "toggle" ]; then
-    if [ "$current" = "macos" ]; then
-        target="default"
-    else
-        target="macos"
-    fi
+    case "$current" in
+        "default")
+            target="macos-light"
+            ;;
+        "macos-light")
+            target="macos-dark"
+            ;;
+        "macos-dark")
+            target="default"
+            ;;
+        *)
+            target="macos-light"
+            ;;
+    esac
+else
+    case "$target" in
+        "macos"|"light")
+            target="macos-light"
+            ;;
+        "dark")
+            target="macos-dark"
+            ;;
+    esac
 fi
 
 if [ ! -d "$THEME_DIR/$target" ]; then
@@ -36,8 +67,14 @@ echo "$target" > "$ACTIVE_THEME_FILE"
 killall -SIGUSR2 waybar
 
 # Notification
-if [ "$target" = "macos" ]; then
-    notify-send -a "Waybar" -i preference-desktop-theme "Waybar Theme" "Switched to macOS Style (Light)"
-else
-    notify-send -a "Waybar" -i preference-desktop-theme "Waybar Theme" "Switched to Default Theme (Dark)"
-fi
+case "$target" in
+    "macos-light")
+        notify-send -a "Waybar" -i preference-desktop-theme "Waybar Theme" "Switched to macOS Light"
+        ;;
+    "macos-dark")
+        notify-send -a "Waybar" -i preference-desktop-theme "Waybar Theme" "Switched to macOS Dark"
+        ;;
+    "default")
+        notify-send -a "Waybar" -i preference-desktop-theme "Waybar Theme" "Switched to Default Dark (Pill)"
+        ;;
+esac

@@ -1,12 +1,18 @@
 {
     "layer": "top",
     "position": "top",
-    "exclusive": true, // "false" 
+    "exclusive": true,
     "spacing": 0,
 
-    "modules-left": ["hyprland/workspaces", "cpu", "custom/gpu", "memory", "temperature"],
+    "modules-left": ["custom/apple", "hyprland/workspaces", "cpu", "custom/gpu", "memory", "temperature"],
     "modules-center": ["clock", "custom/weather"],
     "modules-right": ["custom/mpris-marquee", "custom/cava", "backlight", "pulseaudio", "bluetooth", "network", "power-profiles-daemon", "image#battery", "custom/dnd", "custom/theme-switch", "custom/power"],
+
+    "custom/apple": {
+        "format": "󰀵",
+        "tooltip": false,
+        "on-click": "pgrep -x wlogout >/dev/null || wlogout -b 1 -c 20 -r 20 -L 1700 -R 1700 -T 325 -B 325"
+    },
 
     "hyprland/workspaces": {
         "format": "{name}",
@@ -17,13 +23,13 @@
 
     "cpu": {
         "interval": 1,
-        "format": "CPU {usage}%",
+        "format": "CPU {usage}%"
     },
 
     "memory": {
         "interval": 1,
         "format": "RAM {percentage}%",
-        "tooltip-format": "{used} / {total}GiB",
+        "tooltip-format": "{used} / {total}GiB"
     },
 
     "custom/gpu": {
@@ -38,13 +44,13 @@
         "thermal-zone": 0,
         "critical-threshold": 80,
         "interval": 1,
-        "format": " {temperatureC}°C",
-        "format-critical": " {temperatureC}°C",
+        "format": "{temperatureC}°C",
+        "format-critical": "{temperatureC}°C",
         "tooltip": true,
         "tooltip-format": "CPU Temp: {temperatureC}°C",
         "on-click": "~/.config/waybar/scripts/toggle-gammastep"
     },
-//  "format": "{:%H:%M}",
+
     "clock": {
         "interval": 1,
         "format": "{:%H:%M:%S}",
@@ -160,7 +166,7 @@
     "custom/theme-switch": {
         "format": "󰔎",
         "tooltip": true,
-        "tooltip-format": "Current: Default Dark (Pill)\nClick: Switch to macOS Light",
+        "tooltip-format": "Current: macOS Dark\nClick: Switch to Default Dark (Pill)",
         "on-click": "~/.config/waybar/scripts/switch-theme.sh"
     },
 
