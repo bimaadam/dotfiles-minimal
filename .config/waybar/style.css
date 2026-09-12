@@ -68,6 +68,10 @@ window#waybar {
 #custom-gpu,
 #clock,
 #pulseaudio,
+#backlight,
+#bluetooth,
+#network,
+#power-profiles-daemon,
 #battery,
 #image#battery,
 #image,
@@ -123,6 +127,10 @@ tooltip label {
 #temperature,
 #clock,
 #pulseaudio,
+#backlight,
+#bluetooth,
+#network,
+#power-profiles-daemon,
 #battery,
 #custom-mpris-marquee {
     transition: font-size 0.15s ease;
@@ -134,9 +142,33 @@ tooltip label {
 #temperature:hover,
 #clock:hover,
 #pulseaudio:hover,
+#backlight:hover,
+#bluetooth:hover,
+#network:hover,
+#power-profiles-daemon:hover,
 #battery:hover,
 #custom-mpris-marquee:hover {
     font-size: 13px;
+}
+
+/* Network & Bluetooth status */
+#bluetooth.disabled,
+#bluetooth.off,
+#network.disconnected {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Power Profiles Daemon */
+#power-profiles-daemon.performance {
+    color: #f38ba8;
+}
+
+#power-profiles-daemon.balanced {
+    color: #89b4fa;
+}
+
+#power-profiles-daemon.power-saver {
+    color: #a6e3a1;
 }
 
 /* Battery (macOS Style) */
