@@ -23,7 +23,8 @@ window#waybar {
     margin: 0 4px;
 }
 
-/* Apple Logo */
+/* Distro Logo */
+#custom-distro,
 #custom-apple {
     font-size: 16px;
     color: #1d1d1f;
@@ -31,8 +32,9 @@ window#waybar {
     transition: all 0.15s ease;
 }
 
+#custom-distro:hover,
 #custom-apple:hover {
-    color: #007aff;
+    color: #7f3fbf;
 }
 
 /* Workspaces */

@@ -4,12 +4,12 @@
     "exclusive": true,
     "spacing": 0,
 
-    "modules-left": ["custom/apple", "hyprland/workspaces", "cpu", "custom/gpu", "memory", "temperature", "custom/weather"],
+    "modules-left": ["custom/distro", "hyprland/workspaces", "cpu", "custom/gpu", "memory", "temperature", "custom/weather"],
     "modules-center": ["clock"],
     "modules-right": ["custom/mpris-marquee", "custom/cava", "backlight", "pulseaudio", "bluetooth", "network", "power-profiles-daemon", "image#battery", "custom/dnd", "custom/theme-switch", "custom/power"],
 
-    "custom/apple": {
-        "format": "󰀵",
+    "custom/distro": {
+        "format": "",
         "tooltip": false,
         "on-click": "pgrep -x wlogout >/dev/null || wlogout -b 1 -c 20 -r 20 -L 1700 -R 1700 -T 325 -B 325"
     },
