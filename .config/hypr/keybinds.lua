@@ -38,6 +38,9 @@ hl.bind("Delete", hl.dsp.exec_cmd(home .. "/.config/hypr/scripts/screenshot.sh a
 hl.bind("Print", hl.dsp.exec_cmd(home .. "/.config/hypr/scripts/screenshot.sh full"), { locked = true })
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd(home .. "/.config/hypr/scripts/screenshot.sh area"))
 
+-- Color Picker
+hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd(home .. "/.config/hypr/scripts/colorpicker.sh"))
+
 -- Brightness
 hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl set 5%+"), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), { locked = true, repeating = true })

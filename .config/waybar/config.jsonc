@@ -5,8 +5,8 @@
     "spacing": 0,
 
     "modules-left": ["hyprland/workspaces", "cpu", "custom/gpu", "memory", "temperature"],
-    "modules-center": ["clock"],
-    "modules-right": ["custom/mpris-marquee", "backlight", "pulseaudio", "bluetooth", "network", "power-profiles-daemon", "image#battery", "custom/power"],
+    "modules-center": ["clock", "custom/weather"],
+    "modules-right": ["custom/mpris-marquee", "custom/cava", "backlight", "pulseaudio", "bluetooth", "network", "power-profiles-daemon", "image#battery", "custom/dnd", "custom/power"],
 
     "hyprland/workspaces": {
         "format": "{name}",
@@ -57,6 +57,14 @@
         }
     },
 
+    "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 900,
+        "exec": "~/.config/waybar/scripts/weather.py",
+        "return-type": "json"
+    },
+
     "custom/mpris-marquee": {
         "exec": "~/.config/waybar/scripts/mpris-marquee.sh",
         "return-type": "json",
@@ -64,6 +72,12 @@
         "on-click": "playerctl play-pause",
         "on-scroll-up": "playerctl next",
         "on-scroll-down": "playerctl previous"
+    },
+
+    "custom/cava": {
+        "exec": "~/.config/waybar/scripts/cava.py",
+        "format": "{}",
+        "tooltip": false
     },
 
     "pulseaudio": {
@@ -111,7 +125,7 @@
         "max-length": 18,
         "tooltip": true,
         "tooltip-format": "Wi-Fi: {essid} ({signalStrength}%)\nIP: {ipaddr}\nInterface: {ifname}",
-        "on-click": "kitty --class nm-connection-editor -e nmtui",
+        "on-click": "~/.config/waybar/scripts/rofi-wifi-menu.sh",
         "on-click-right": "nmcli radio wifi | grep -q enabled && nmcli radio wifi off || nmcli radio wifi on"
     },
 
@@ -132,6 +146,15 @@
         "size": 44,
         "interval": 2,
         "tooltip": true
+    },
+
+    "custom/dnd": {
+        "exec": "~/.config/waybar/scripts/dnd.sh",
+        "return-type": "json",
+        "interval": 2,
+        "signal": 9,
+        "on-click": "dunstctl set-paused toggle && pkill -RTMIN+9 waybar",
+        "on-click-right": "dunstctl history-pop"
     },
 
     "custom/power": {
