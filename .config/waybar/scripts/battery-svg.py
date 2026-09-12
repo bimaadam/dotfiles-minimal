@@ -151,10 +151,10 @@ def generate_svg(pct, charging):
   </defs>
 
   <!-- Battery Outer Capsule -->
-  <rect x="1" y="1" width="{width}" height="14" rx="4.5" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.2" />
+  <rect x="1" y="1" width="{width}" height="14" rx="4.5" fill="none" stroke="#FFFFFF" stroke-width="1.3" />
 
   <!-- Positive Terminal Bump -->
-  <rect x="{term_x}" y="4.5" width="2" height="7" rx="1" fill="rgba(255,255,255,0.4)" />
+  <rect x="{term_x}" y="4.5" width="2" height="7" rx="1" fill="#FFFFFF" />
 
   <!-- Battery Fill Level -->
   <rect x="2.5" y="2.5" width="{fill_w:.1f}" height="11" rx="2.5" fill="{fill_color}" />
