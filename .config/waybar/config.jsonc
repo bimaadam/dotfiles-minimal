@@ -4,8 +4,8 @@
     "exclusive": true, // "false" 
     "spacing": 0,
 
-    "modules-left": ["hyprland/workspaces", "cpu", "custom/gpu", "memory", "temperature"],
-    "modules-center": ["clock", "custom/weather"],
+    "modules-left": ["hyprland/workspaces", "cpu", "custom/gpu", "memory", "temperature", "custom/weather"],
+    "modules-center": ["clock"],
     "modules-right": ["custom/mpris-marquee", "custom/cava", "backlight", "pulseaudio", "bluetooth", "network", "power-profiles-daemon", "image#battery", "custom/dnd", "custom/theme-switch", "custom/power"],
 
     "hyprland/workspaces": {
