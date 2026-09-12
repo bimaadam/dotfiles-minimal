@@ -1,0 +1,187 @@
+/* macOS Light Style Waybar */
+
+* {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "JetBrainsMono Nerd Font", "Symbols Nerd Font Mono", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    min-height: 0;
+}
+
+window#waybar {
+    min-height: 28px;
+    background-color: rgba(245, 245, 247, 0.88);
+    color: #1d1d1f;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+/* Modules Containers (Full-width edge-to-edge top bar) */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: transparent;
+    border-radius: 0;
+    margin: 0 4px;
+}
+
+/* Apple Logo */
+#custom-apple {
+    font-size: 16px;
+    color: #1d1d1f;
+    padding: 0 10px 0 8px;
+    transition: all 0.15s ease;
+}
+
+#custom-apple:hover {
+    color: #007aff;
+}
+
+/* Workspaces */
+#workspaces {
+    padding: 0 2px;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    margin: 3px 2px;
+    color: rgba(29, 29, 31, 0.5);
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.15s ease;
+}
+
+#workspaces button.active {
+    color: #1d1d1f;
+    background: rgba(0, 0, 0, 0.08);
+}
+
+#workspaces button:hover {
+    color: #1d1d1f;
+    background: rgba(0, 0, 0, 0.04);
+}
+
+#workspaces button.urgent {
+    color: #ff3b30;
+}
+
+/* Module Spacing */
+#cpu,
+#memory,
+#custom-gpu,
+#clock,
+#pulseaudio,
+#backlight,
+#bluetooth,
+#network,
+#power-profiles-daemon,
+#battery,
+#image#battery,
+#image,
+#custom-mpris-marquee,
+#custom-cava,
+#custom-weather,
+#custom-dnd,
+#custom-theme-switch,
+#custom-power,
+#temperature {
+    padding: 0 8px;
+    margin: 2px 1px;
+    color: #1d1d1f;
+    transition: background 0.15s ease;
+}
+
+/* Hover effect */
+#cpu:hover,
+#memory:hover,
+#custom-gpu:hover,
+#temperature:hover,
+#clock:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#bluetooth:hover,
+#network:hover,
+#power-profiles-daemon:hover,
+#custom-mpris-marquee:hover,
+#custom-weather:hover,
+#custom-dnd:hover,
+#custom-theme-switch:hover,
+#custom-power:hover {
+    background: rgba(0, 0, 0, 0.06);
+    border-radius: 6px;
+}
+
+/* Clock */
+#clock {
+    font-weight: 600;
+}
+
+/* Weather */
+#custom-weather {
+    font-weight: 600;
+    color: #d97706;
+}
+
+/* Cava Audio Visualizer */
+#custom-cava {
+    color: #7c3aed;
+    letter-spacing: -1px;
+    padding: 0 4px;
+}
+
+/* Power Profiles Daemon */
+#power-profiles-daemon.performance {
+    color: #e11d48;
+}
+
+#power-profiles-daemon.balanced {
+    color: #0284c7;
+}
+
+#power-profiles-daemon.power-saver {
+    color: #16a34a;
+}
+
+/* Network & Bluetooth status */
+#bluetooth.disabled,
+#bluetooth.off,
+#network.disconnected {
+    color: rgba(29, 29, 31, 0.35);
+}
+
+/* DND */
+#custom-dnd {
+    color: #1d1d1f;
+    font-size: 13px;
+}
+
+#custom-dnd.paused {
+    color: #dc2626;
+}
+
+/* Theme Switch */
+#custom-theme-switch {
+    font-size: 13px;
+    color: #1d1d1f;
+}
+
+/* Power */
+#custom-power {
+    font-size: 14px;
+    color: #1d1d1f;
+    padding-right: 10px;
+}
+
+/* Tooltip */
+tooltip {
+    background-color: rgba(255, 255, 255, 0.96);
+    color: #1d1d1f;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+tooltip label {
+    color: #1d1d1f;
+    font-size: 12px;
+}

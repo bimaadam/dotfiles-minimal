@@ -105,6 +105,19 @@ def get_battery_info():
     pct = max(0, min(100, pct))
     return pct, is_charging, is_plugged, bat_summaries
 
+THEME_FILE = os.path.expanduser("~/.config/waybar/current_theme")
+
+def get_current_theme():
+    if os.path.exists(THEME_FILE):
+        try:
+            with open(THEME_FILE) as f:
+                t = f.read().strip().lower()
+                if t in ("macos", "light"):
+                    return "macos"
+        except Exception:
+            pass
+    return "default"
+
 def generate_svg(pct, charging):
     width = 37.0
     total_w = 42.5
@@ -112,34 +125,61 @@ def generate_svg(pct, charging):
     fill_max = 34.0
     fill_w = max(0.0, min(fill_max, fill_max * (pct / 100.0)))
 
-    # Sleek lightning bolt vector path
+    theme = get_current_theme()
     bolt_path = "M 4.2 1.5 L 1.8 6.2 L 3.8 6.2 L 2.8 10.5 L 6.8 5.2 L 4.8 5.2 Z"
 
-    if charging:
-        fill_color = "#30D158"  # iOS vibrant green
-        if pct == 100:
-            bolt_x = 3.5
-            font_size = 8.5
-            text_x = 24.5
-        elif pct < 10:
-            bolt_x = 7.5
-            font_size = 9.5
-            text_x = 22.0
+    if theme == "macos":
+        # macOS Light theme colors
+        stroke_color = "#1d1d1f"
+        term_color = "#1d1d1f"
+        if charging:
+            fill_color = "#30D158"  # iOS/macOS green
+            if pct == 100:
+                bolt_x, font_size, text_x = 3.5, 8.5, 24.5
+            elif pct < 10:
+                bolt_x, font_size, text_x = 7.5, 9.5, 22.0
+            else:
+                bolt_x, font_size, text_x = 5.0, 9.0, 23.0
+            bolt_elem = f"""<path d="{bolt_path}" transform="translate({bolt_x}, 2)" />"""
         else:
-            bolt_x = 5.0
-            font_size = 9.0
-            text_x = 23.0
-        bolt_elem = f"""<path d="{bolt_path}" transform="translate({bolt_x}, 2)" />"""
+            if pct <= 20:
+                fill_color = "#FF3B30"  # macOS red
+            elif pct <= 30:
+                fill_color = "#FF9500"  # macOS orange
+            else:
+                fill_color = "#1d1d1f"  # Solid dark fill
+            bolt_elem = ""
+            font_size = 8.5 if pct == 100 else 9.5
+            text_x = 19.5
+
+        base_text_color = "#1d1d1f"
+        clip_text_color = "#000000" if charging else "#FFFFFF"
     else:
-        if pct <= 20:
-            fill_color = "#FF453A"  # iOS warning red
-        elif pct <= 30:
-            fill_color = "#FF9F0A"  # iOS low power yellow/orange
+        # Default Dark theme colors
+        stroke_color = "#FFFFFF"
+        term_color = "#FFFFFF"
+        if charging:
+            fill_color = "#30D158"
+            if pct == 100:
+                bolt_x, font_size, text_x = 3.5, 8.5, 24.5
+            elif pct < 10:
+                bolt_x, font_size, text_x = 7.5, 9.5, 22.0
+            else:
+                bolt_x, font_size, text_x = 5.0, 9.0, 23.0
+            bolt_elem = f"""<path d="{bolt_path}" transform="translate({bolt_x}, 2)" />"""
         else:
-            fill_color = "#FFFFFF"  # iOS clean white
-        bolt_elem = ""
-        font_size = 8.5 if pct == 100 else 9.5
-        text_x = 19.5
+            if pct <= 20:
+                fill_color = "#FF453A"
+            elif pct <= 30:
+                fill_color = "#FF9F0A"
+            else:
+                fill_color = "#FFFFFF"
+            bolt_elem = ""
+            font_size = 8.5 if pct == 100 else 9.5
+            text_x = 19.5
+
+        base_text_color = "#FFFFFF"
+        clip_text_color = "#000000"
 
     text_elem = f"""<text x="{text_x:.1f}" y="11.2" font-family="Cantarell, -apple-system, BlinkMacSystemFont, 'Noto Sans', sans-serif" font-size="{font_size}" font-weight="800" text-anchor="middle">{pct}</text>"""
 
@@ -151,22 +191,22 @@ def generate_svg(pct, charging):
   </defs>
 
   <!-- Battery Outer Capsule -->
-  <rect x="1" y="1" width="{width}" height="14" rx="4.5" fill="none" stroke="#FFFFFF" stroke-width="1.3" />
+  <rect x="1" y="1" width="{width}" height="14" rx="4.5" fill="none" stroke="{stroke_color}" stroke-width="1.3" />
 
   <!-- Positive Terminal Bump -->
-  <rect x="{term_x}" y="4.5" width="2" height="7" rx="1" fill="#FFFFFF" />
+  <rect x="{term_x}" y="4.5" width="2" height="7" rx="1" fill="{term_color}" />
 
   <!-- Battery Fill Level -->
   <rect x="2.5" y="2.5" width="{fill_w:.1f}" height="11" rx="2.5" fill="{fill_color}" />
 
-  <!-- Base elements (white: visible over empty background) -->
-  <g fill="#FFFFFF">
+  <!-- Base elements (visible over empty background) -->
+  <g fill="{base_text_color}">
     {bolt_elem}
     {text_elem}
   </g>
 
-  <!-- Inverted elements (black: visible over filled region) -->
-  <g clip-path="url(#fill-clip)" fill="#000000">
+  <!-- Inverted elements (visible over filled region) -->
+  <g clip-path="url(#fill-clip)" fill="{clip_text_color}">
     {bolt_elem}
     {text_elem}
   </g>
