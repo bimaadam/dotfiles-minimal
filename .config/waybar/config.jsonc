@@ -6,7 +6,7 @@
 
     "modules-left": ["hyprland/workspaces", "cpu", "custom/gpu", "memory", "temperature"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/mpris-marquee", "pulseaudio", "custom/power"],
+    "modules-right": ["custom/mpris-marquee", "pulseaudio", "battery", "custom/power"],
 
     "hyprland/workspaces": {
         "format": "{name}",
@@ -75,6 +75,20 @@
         "tooltip": false,
         "on-click": "pavucontrol",
         "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+
+    "battery": {
+        "interval": 2,
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity}%",
+        "format-charging": "󰂄  {capacity}%",
+        "format-plugged": "󰚥  {capacity}%",
+        "format-alt": "{capacity}%  {icon}",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
 
     "custom/power": {

@@ -68,6 +68,7 @@ window#waybar {
 #custom-gpu,
 #clock,
 #pulseaudio,
+#battery,
 #custom-mpris-marquee,
 #custom-power,
 #temperature {
@@ -120,6 +121,7 @@ tooltip label {
 #temperature,
 #clock,
 #pulseaudio,
+#battery,
 #custom-mpris-marquee {
     transition: font-size 0.15s ease;
 }
@@ -130,6 +132,21 @@ tooltip label {
 #temperature:hover,
 #clock:hover,
 #pulseaudio:hover,
+#battery:hover,
 #custom-mpris-marquee:hover {
     font-size: 13px;
+}
+
+/* Battery (macOS Style) */
+#battery.charging,
+#battery.plugged {
+    color: #a6e3a1;
+}
+
+#battery.warning:not(.charging) {
+    color: #fab387;
+}
+
+#battery.critical:not(.charging) {
+    color: #ff5555;
 }
